@@ -22,7 +22,7 @@ export default function Home() {
           <div className="chat chat-start">
             <div className="chat-header">Obi-Wan Kenobi</div>
             <div className="chat-bubble">
-              It's over Anakin,
+              Its over Anakin,
               <br />I have the high ground.
             </div>
           </div>
