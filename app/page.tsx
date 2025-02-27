@@ -16,8 +16,9 @@ export default function Home() {
   ]);
 
   const fetchData = async () => {
+    const url = "https://chatbot-api-973786037919.us-central1.run.app";
     try {
-      const res = await fetch(`http://localhost:3001/talk=rag_${ragState}`, {
+      const res = await fetch(`${url}/talk=rag_${ragState}`, {
         body: JSON.stringify({ user_message: question }),
         method: "POST",
         headers: {
