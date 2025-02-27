@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Sigmar } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const sigmar = Sigmar({
+  weight: ["400"],
+  variable: "--font-sigmar",
   subsets: ["latin"],
 });
 
@@ -20,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} antialiased`}>{children}</body>
+      <body className={`${manrope.variable} ${sigmar.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

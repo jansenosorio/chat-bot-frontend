@@ -14,8 +14,13 @@ export default {
       },
       fontFamily: {
         manrope: ["var(--font-manrope)"],
+        sigmar: ["var(--font-sigmar)"],
       },
     },
   },
-  plugins: [require("daisyui"), require("tailwindcss-animated")],
+  plugins: [
+    require("daisyui"),
+    require("tailwindcss-animated"),
+    require("tailwind-scrollbar"),
+  ],
 } satisfies Config;
