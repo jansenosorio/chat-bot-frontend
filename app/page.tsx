@@ -71,11 +71,11 @@ export default function Home() {
               "font-sigmar text-[50px] text-slate-50"
             )}
           >
-            <h2 className="text-slate-700">Olá, visitante!</h2>
-            <p className="text-[40px] text-slate-300">
+            <h2 className="text-slate-300">Olá, visitante!</h2>
+            <p className="text-[40px] text-slate-700">
               Eu posso te ajudar com algo?
             </p>
-            <p className="max-w-md text-[20px] text-blue-white text-center leading-6 font-manrope pt-4 font-semibold">
+            <p className="max-w-md text-[20px] text-slate-800 text-center leading-6 font-manrope pt-4">
               Pronto para te ajudar, basta digitar o que precisar, seja
               perguntas, recomendações ou dúvidas frequentes.
             </p>
