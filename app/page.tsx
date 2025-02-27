@@ -52,7 +52,7 @@ export default function Home() {
       className={clsx(
         "flex items-center justify-center",
         "w-screen h-screen",
-        "bg-gradient-to-tr from-blue-200 via-blue-400 to-blue-200",
+        "bg-gradient-to-t from-slate-800 to-blue-200",
         "text-black"
       )}
     >
@@ -63,40 +63,25 @@ export default function Home() {
           "w-full  px-4 py-6"
         )}
       >
-        {/* <div
-          className={clsx(
-            "absolute -top-10 right-4",
-            "flex items-center justify-center gap-2"
-          )}
-        >
-          <label className="font-manrope font-bold text-blue-950 text-[20px]">
-            RAG
-          </label>
-          <input
-            type="checkbox"
-            className="toggle border-blue-800 bg-blue-950 hover:bg-blue-900 toggle-lg [--tglbg:#ccdcff]"
-            checked={ragState}
-            onChange={() => setRagState(!ragState)}
-          />
-        </div> */}
-
         {messages.length === 0 ? (
           <div
             className={clsx(
               "animate-fade-down",
               "flex flex-col items-center justify-center",
-              "font-sigmar text-[50px] text-blue-100"
+              "font-sigmar text-[50px] text-slate-50"
             )}
           >
-            <h2 className="text-blue-900">Olá, visitante!</h2>
-            <p className="text-[40px]">Eu posso te ajudar com algo?</p>
+            <h2 className="text-slate-700">Olá, visitante!</h2>
+            <p className="text-[40px] text-slate-300">
+              Eu posso te ajudar com algo?
+            </p>
             <p className="max-w-md text-[20px] text-blue-white text-center leading-6 font-manrope pt-4 font-semibold">
               Pronto para te ajudar, basta digitar o que precisar, seja
               perguntas, recomendações ou dúvidas frequentes.
             </p>
           </div>
         ) : (
-          <div className="mockup-code bg-blue-900/10 rounded-xl mb-10">
+          <div className="mockup-code bg-slate-900/10 rounded-xl mb-28 shadow-xl">
             <div
               id="chat-bot"
               className={clsx(
@@ -118,7 +103,7 @@ export default function Home() {
                       <div className="chat-header pb-2 text-blue-50 font-bold text-[16px]">
                         {msg.agent_user}
                       </div>
-                      <div className="chat-bubble bg-blue-900/50 text-blue-50 text-[18px] max-w-1/2 whitespace-pre-wrap animate-fade-up">
+                      <div className="chat-bubble bg-slate-900/50 text-blue-50 text-[18px] max-w-1/2 whitespace-pre-wrap animate-fade-up">
                         {msg.message}
                       </div>
                     </div>
@@ -131,10 +116,10 @@ export default function Home() {
                         "chat chat-end p-4 max-w-1/2 font-manrope"
                       )}
                     >
-                      <div className="chat-header pb-2 px-2 text-[16px] font-bold text-blue-800">
+                      <div className="chat-header pb-2 px-2 text-[16px] font-bold text-slate-800">
                         {msg.agent_user}
                       </div>
-                      <div className="chat-bubble bg-blue-50 text-blue-900 text-[18px] max-w-1/2 whitespace-pre-wrap animate-fade-up">
+                      <div className="chat-bubble bg-blue-50 text-slate-900 text-[18px] max-w-1/2 whitespace-pre-wrap animate-fade-up">
                         {msg.message}
                       </div>
                     </div>
@@ -149,15 +134,31 @@ export default function Home() {
           className={clsx(
             "w-[95vw] lg:w-[60vw]",
             "flex items-center justify-center",
-            "fixed bottom-10 right-[calc(50%-47.55vw)] lg:right-[calc(50%-30vw)]"
+            "fixed bottom-10 right-[calc(50%-47.55vw)] lg:right-[calc(50%-30vw)] animate-fade-down"
           )}
         >
+          <div
+            className={clsx(
+              "absolute -top-10 right-4",
+              "flex items-center justify-center gap-2"
+            )}
+          >
+            <label className="font-manrope text-slate-50 text-[14px]">
+              Retrieval-Augmented Generation
+            </label>
+            <input
+              type="checkbox"
+              className="toggle border-slate-700 bg-slate-900 hover:bg-slate-900 [--tglbg:white]"
+              checked={ragState}
+              onChange={() => setRagState(!ragState)}
+            />
+          </div>
           <button
             onClick={() => handleSend()}
             className={clsx(
               "flex items-center gap-2",
               "absolute right-1",
-              "w-fit min-h-[56px] rounded-full px-10 bg-blue-900",
+              "w-fit min-h-[56px] rounded-full px-10 bg-slate-700",
               "font-manrope text-white text-[20px] font-bold",
               "transition-all active:scale-95"
             )}
