@@ -7,7 +7,7 @@ export default function InputDefault({ ...props }: InputDefaultProps) {
     <input
       type="text"
       className={clsx(
-        "input bg-blue-200 border border-blue-500 w-full",
+        "input bg-white w-full",
         "font-manrope text-black placeholder:text-black/50"
       )}
       {...props}

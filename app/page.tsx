@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  const [ragState, setRagState] = useState(true);
+  const [ragState, setRagState] = useState(false);
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([
     {
@@ -59,12 +59,30 @@ export default function Home() {
     >
       <div
         className={clsx(
+          "relative",
           "flex flex-col items-end justify-end gap-4",
-          "w-full lg:w-4/5 h-5/6 bg-blue-100 p-4",
-          "border border-blue-300 rounded-lg",
+          "w-full lg:w-4/5 h-5/6 bg-blue-100 px-4 py-6",
+          "border border-blue-300 rounded-3xl",
           "shadow-2xl"
         )}
       >
+        <div
+          className={clsx(
+            "absolute -top-10 right-4",
+            "flex items-center justify-center gap-2"
+          )}
+        >
+          <label className="font-manrope font-bold text-blue-950 text-[20px]">
+            RAG
+          </label>
+          <input
+            type="checkbox"
+            className="toggle border-blue-800 bg-blue-950 hover:bg-blue-900 toggle-lg [--tglbg:#ccdcff]"
+            checked={ragState}
+            onChange={() => setRagState(!ragState)}
+          />
+        </div>
+
         <div
           id="chat-bot"
           className={clsx("w-full", "transition-all overflow-y-scroll")}
@@ -72,18 +90,30 @@ export default function Home() {
           {messages?.map((msg, index) => {
             if (msg.agent_user === "Jansen Chat") {
               return (
-                <div key={index} className={clsx("chat chat-start max-w-1/2")}>
-                  <div className="chat-header">{msg.agent_user}</div>
-                  <div className="chat-bubble max-w-1/2 whitespace-pre-wrap">
+                <div
+                  key={index}
+                  className={clsx(
+                    "chat chat-start bg-blue-200 p-4 font-manrope rounded-md"
+                  )}
+                >
+                  <div className="chat-header pb-2 text-blue-800">
+                    {msg.agent_user}
+                  </div>
+                  <div className="chat-bubble bg-blue-50 text-blue-950 max-w-1/2 whitespace-pre-wrap animate-fade-down">
                     {msg.message}
                   </div>
                 </div>
               );
             } else {
               return (
-                <div key={index} className={clsx("chat chat-end max-w-1/2")}>
-                  <div className="chat-header">{msg.agent_user}</div>
-                  <div className="chat-bubble max-w-1/2 whitespace-pre-wrap">
+                <div
+                  key={index}
+                  className={clsx("chat chat-end p-4 max-w-1/2 font-manrope")}
+                >
+                  <div className="chat-header pb-2 px-2 text-blue-800">
+                    {msg.agent_user}
+                  </div>
+                  <div className="chat-bubble bg-blue-50 text-blue-950 max-w-1/2 whitespace-pre-wrap animate-fade-down">
                     {msg.message}
                   </div>
                 </div>
@@ -91,7 +121,13 @@ export default function Home() {
             }
           })}
         </div>
-        <div className={clsx("relative", "w-full", "flex items-center gap-2")}>
+        <div
+          className={clsx(
+            "relative",
+            "w-full",
+            "flex items-center gap-2 mt-10"
+          )}
+        >
           <InputDefault
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
