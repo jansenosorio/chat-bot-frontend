@@ -68,10 +68,11 @@ export default function Home() {
             className={clsx(
               "animate-fade-down",
               "flex flex-col items-center justify-center",
-              "font-sigmar text-[50px] text-slate-50"
+              "font-sigmar text-[50px] text-slate-50",
+              "pb-52"
             )}
           >
-            <h2 className="text-slate-300">Olá, visitante!</h2>
+            <h2 className="text-slate-100">Olá, visitante!</h2>
             <p className="text-[40px] text-slate-700">
               Eu posso te ajudar com algo?
             </p>
